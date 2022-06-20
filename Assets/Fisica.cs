@@ -6,11 +6,12 @@ using UnityEngine;
 public class Fisica : MonoBehaviour
 {
     Rigidbody pendulo;
+    public GameObject inputs;
     public Massa M1, M2, m1_, m2_; // m# = masses connected to the pendulum, M# = other masses
     public double GravitationalConstant = 6.7e-11, freq = 1;
     public float timeMultiplicator = 1;
     public double dOmega = 0, oldOmega = 0;
-    public bool stopped = false;
+    public bool stopped = true, started = false;
     
     public double degree = 0f;
 
@@ -48,10 +49,17 @@ public class Fisica : MonoBehaviour
 
     void Update()
     {
-        if(dOmega < 0)
-            stopped = true;
+        if(M1.mass > 0 && M2.mass > 0 && m1_.mass > 0 && m2_.mass > 0 && !started)
+        {
+            started = true;
+            Destroy(inputs);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
-        if(!stopped)
+        
+
+
+        if(!stopped && started)
         {            
             degree = pendulo.rotation.eulerAngles.y;
             dOmega += GetAngularAccerlation()*timeMultiplicator*Time.deltaTime;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Massa : MonoBehaviour
 {
-    public float mass = 10;
+    public float mass = -1;
     public float radius;
     public Rigidbody rb;
 
@@ -17,6 +17,10 @@ public class Massa : MonoBehaviour
     public float InertiaMoment()
     {
         return mass * radius * radius;
+    }
+    public void MassInput(string input)
+    {
+        mass = int.Parse(input);
     }
 
 
