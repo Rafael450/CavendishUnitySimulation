@@ -24,9 +24,9 @@ public class Controller : MonoBehaviour
             rb.position = new Vector3(0,0.114F,-10);
         }
         else if(Input.GetKey(KeyCode.W))
-            rb.velocity = new Vector3(0,0,100f);
+            rb.velocity = new Vector3(0,0,150f);
         else if(Input.GetKey(KeyCode.S))
-            rb.velocity = new Vector3(0,0,-100f);
+            rb.velocity = new Vector3(0,0,-150f);
         else
              rb.velocity = new Vector3(0,0,0);
     }
