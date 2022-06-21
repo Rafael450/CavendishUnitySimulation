@@ -452,7 +452,7 @@ MonoBehaviour:
   m1_: {fileID: 2009676683}
   m2_: {fileID: 1327993986}
   GravitationalConstant: 0.000000000067
-  freq: 10
+  period: 10
   timeMultiplicator: 1
   dOmega: 0
   oldOmega: 0
